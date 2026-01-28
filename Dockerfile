@@ -10,7 +10,7 @@ COPY tsconfig.json ./
 COPY src ./src
 COPY views ./views
 COPY public ./public
-COPY lua ./lua   # 🔥 ADD THIS
+COPY lua ./lua   
 
 RUN npm run build
 
