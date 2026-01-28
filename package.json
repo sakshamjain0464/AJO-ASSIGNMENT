@@ -4,7 +4,7 @@
   "description": "Production-ready real-time auction platform",
   "main": "dist/server.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp -r src/lua dist/lua",
     "start": "tsc && cp -r src/lua dist/lua && node dist/server.js",
     "dev": "ts-node src/server.ts",
     "seed": "ts-node src/seed/seed.ts"
