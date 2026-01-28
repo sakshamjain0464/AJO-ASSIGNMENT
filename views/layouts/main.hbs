@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body data-server-time="{{serverTime}}">
+
+  {{> header}}
+
+  <main>
+    {{{body}}}
+  </main>
+  <div class="modal" id="bidder-modal">
+  <div class="modal-content">
+    <h3 class="modal-title">Enter Your Name</h3>
+
+    <input
+      type="text"
+      id="bidder-name-input"
+      class="modal-input"
+      placeholder="Your name"
+      maxlength="50"
+    />
+
+    <div class="modal-actions">
+      <button
+        class="modal-button modal-button-cancel"
+        id="modal-cancel"
+      >
+        Cancel
+      </button>
+      <button
+        class="modal-button modal-button-confirm"
+        id="modal-confirm"
+        disabled
+      >
+        Place Bid
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 🔥 TOAST -->
+<div class="toast" id="toast"></div>
+
+  {{> footer}}
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socket.js"></script>
+</body>
+</html>

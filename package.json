@@ -1,0 +1,38 @@
+{
+  "name": "live-bidding-platform",
+  "version": "1.0.0",
+  "description": "Production-ready real-time auction platform",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "seed": "ts-node src/seed/seed.ts"
+  },
+  "keywords": [
+    "auction",
+    "bidding",
+    "websocket",
+    "redis"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "ejs": "^4.0.1",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-handlebars": "^8.0.2",
+    "redis": "^4.6.5",
+    "socket.io": "^4.6.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/express-ejs-layouts": "^2.5.4",
+    "@types/node": "^18.15.11",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  }
+}

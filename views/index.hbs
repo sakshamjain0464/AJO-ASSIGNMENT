@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="dashboard-header">
+    <h2>Active Auctions</h2>
+    <p>Place your bids in real-time</p>
+  </div>
+
+  {{#if items.length}}
+    <div class="auction-grid">
+      {{#each items}}
+        <div
+          class="auction-card"
+          id="auction-{{id}}"
+          data-item-id="{{id}}"
+          data-ends-at="{{endsAt}}"
+          data-ended="{{ended}}"
+        >
+          <div class="card-header">
+            <h3>{{title}}</h3>
+            <span class="status-badge status-{{#if ended}}ended{{else}}active{{/if}}">
+              {{#if ended}}Ended{{else}}Active{{/if}}
+            </span>
+          </div>
+
+          <div class="card-body">
+            <div class="price-section">
+              <div class="price-label">Current Bid</div>
+
+              <!-- ✅ REQUIRED BY JS -->
+              <div class="price-value" data-current-bid="{{currentBid}}">
+                $<span class="price-amount">{{currentBid}}</span>
+              </div>
+
+              {{#if highestBidder}}
+                <div class="highest-bidder">
+                  Highest bidder: <strong>{{highestBidder}}</strong>
+                </div>
+              {{else}}
+                <div class="highest-bidder">No bids yet</div>
+              {{/if}}
+            </div>
+
+            <div class="timer-section">
+              <!-- ✅ REQUIRED BY JS -->
+              <div class="timer-value" data-timer="{{id}}">
+                {{#if ended}}
+                  <span class="timer-expired">Auction Ended</span>
+                {{else}}
+                  <span class="timer-countdown">Calculating...</span>
+                {{/if}}
+              </div>
+            </div>
+
+            <!-- ✅ REQUIRED BY JS -->
+            <button
+              class="bid-button"
+              data-bid-action="{{id}}"
+              data-bid-increment="10"
+              {{#if ended}}disabled{{/if}}
+            >
+              💰 Bid +$10
+            </button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <p>No active auctions.</p>
+  {{/if}}
+</div>
