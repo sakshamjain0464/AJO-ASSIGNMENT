@@ -9,8 +9,7 @@ RUN npm ci
 COPY tsconfig.json ./
 COPY src ./src
 COPY views ./views
-COPY public ./public
-COPY lua ./lua   
+COPY public ./public 
 
 RUN npm run build
 
@@ -26,7 +25,6 @@ RUN npm ci --only=production
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/views ./views
 COPY --from=builder /app/public ./public
-COPY --from=builder /app/lua ./lua   # 🔥 ADD THIS
 
 ENV NODE_ENV=production
 ENV PORT=3000

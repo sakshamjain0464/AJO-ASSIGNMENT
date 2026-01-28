@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/server.js",
+    "start": "tsc && cp -r src/lua dist/lua && node dist/server.js",
     "dev": "ts-node src/server.ts",
     "seed": "ts-node src/seed/seed.ts"
   },
